@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Laryssa & José</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main>
+
+    <div class="area-convite">
+
+      <!-- Carta criada no Canva -->
+      <img
+        src="carta.png"
+        alt="Carta do convite de Laryssa e José"
+        class="carta"
+        id="carta"
+      >
+
+      <!-- Envelope dividido em camadas -->
+      <div
+        class="envelope-conjunto"
+        id="envelope-conjunto"
+      >
+
+        <img
+          src="envelope-base.png"
+          alt="Base do envelope"
+          class="envelope-base"
+        >
+
+        <img
+          src="aba-envelope.png"
+          alt="Aba do envelope"
+          class="aba-envelope"
+          id="aba-envelope"
+        >
+
+        <img
+          src="selo.png"
+          alt="Selo do envelope"
+          class="selo"
+          id="selo"
+        >
+
+        <button
+          class="selo-botao"
+          id="selo-botao"
+          type="button"
+          aria-label="Abrir o convite tocando no selo"
+        ></button>
+
+      </div>
+
+    </div>
+
+    <!-- Orientação inicial -->
+    <p class="texto" id="texto">
+      Toque no selo para abrir
+    </p>
+
+    <!-- Botão que aparecerá depois da carta -->
+    <a
+      href="#"
+      class="botao-site"
+      id="botao-site"
+      hidden
+    >
+      Entrar no nosso site
+    </a>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
