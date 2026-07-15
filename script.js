@@ -1,159 +1,65 @@
-const seloBotao =
-  document.querySelector("#selo-botao");
-
-const selo =
-  document.querySelector("#selo");
-
-const abaEnvelope =
-  document.querySelector("#aba-envelope");
-
-const envelopeConjunto =
-  document.querySelector("#envelope-conjunto");
-
-const carta =
-  document.querySelector("#carta");
-
-const texto =
-  document.querySelector("#texto");
-
-const botaoSite =
-  document.querySelector("#botao-site");
-
+const seloBotao = document.querySelector("#selo-botao");
+const selo = document.querySelector("#selo");
+const abaEnvelope = document.querySelector("#aba-envelope");
+const carta = document.querySelector("#carta");
+const texto = document.querySelector("#texto");
+const botaoSite = document.querySelector("#botao-site");
 let conviteAberto = false;
-let indoParaSite = false;
 
+seloBotao.addEventListener("click", function () {
 
-/* =========================
-   ABERTURA DO CONVITE
-========================= */
-
-seloBotao.addEventListener(
-  "click",
-  function () {
-
-    if (conviteAberto) {
-      return;
-    }
-
-    conviteAberto = true;
-
-    /* Para a respiração do envelope */
-    envelopeConjunto.classList.add(
-      "aberto"
-    );
-
-    /* Texto desaparece */
-
-    texto.classList.add(
-      "sumindo"
-    );
-
-    /* Selo desaparece */
-
-    selo.classList.add(
-      "abrindo"
-    );
-
-    /* Aba abre */
-
-    setTimeout(
-      function () {
-
-        abaEnvelope.classList.add(
-          "aberta"
-        );
-
-      },
-      450
-    );
-
-    /* Carta começa a sair */
-
-    setTimeout(
-      function () {
-
-        carta.classList.add(
-          "saindo"
-        );
-
-      },
-      950
-    );
-
-    /* Carta termina de sair */
-
-    setTimeout(
-      function () {
-
-        carta.classList.remove(
-          "saindo"
-        );
-
-        carta.classList.add(
-          "aberta"
-        );
-
-      },
-      1500
-    );
-
-    /* Botão aparece */
-
-    setTimeout(
-      function () {
-
-        botaoSite.hidden = false;
-
-        requestAnimationFrame(
-          function () {
-
-            botaoSite.classList.add(
-              "visivel"
-            );
-
-          }
-        );
-
-      },
-      2300
-    );
-
+  if (conviteAberto) {
+    return;
   }
-);
 
+  conviteAberto = true;
 
-/* =========================
-   REDIRECIONAMENTO
-========================= */
+  /* 1. Texto desaparece */
+  texto.classList.add("sumindo");
 
-botaoSite.addEventListener(
-  "click",
-  function (event) {
+  /* 2. Selo desaparece */
+  selo.classList.add("abrindo");
 
-    event.preventDefault();
+  /* 3. Aba abre */
+  setTimeout(function () {
+    abaEnvelope.classList.add("aberta");
+  }, 450);
 
-    if (indoParaSite) {
-      return;
-    }
+  /* 4. Carta começa a sair */
+  setTimeout(function () {
+    carta.classList.add("saindo");
+  }, 950);
 
-    indoParaSite = true;
+  /* 5. Carta termina de sair */
+  setTimeout(function () {
+    carta.classList.remove("saindo");
+    carta.classList.add("aberta");
+  }, 1500);
 
-    const destino =
-      botaoSite.href;
+setTimeout(function () {
+  botaoSite.hidden = false;
 
-    document.body.classList.add(
-      "saindo-site"
-    );
+  setTimeout(function () {
+    botaoSite.classList.add("visivel");
+  }, 50);
 
-    setTimeout(
-      function () {
+}, 2300);
+botaoSite.addEventListener("click", function (event) {
 
-        window.location.href =
-          destino;
+  event.preventDefault();
 
-      },
-      450
-    );
-
+  if (botaoSite.classList.contains("indo-para-site")) {
+    return;
   }
-);
+
+  botaoSite.classList.add("indo-para-site");
+
+  const destino = botaoSite.href;
+
+  document.body.classList.add("saindo-site");
+
+  setTimeout(function () {
+    window.location.href = destino;
+  }, 450);
+
+});

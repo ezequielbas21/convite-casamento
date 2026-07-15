@@ -1,65 +1,89 @@
-const seloBotao = document.querySelector("#selo-botao");
-const selo = document.querySelector("#selo");
-const abaEnvelope = document.querySelector("#aba-envelope");
-const carta = document.querySelector("#carta");
-const texto = document.querySelector("#texto");
-const botaoSite = document.querySelector("#botao-site");
-let conviteAberto = false;
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-seloBotao.addEventListener("click", function () {
+<head>
+  <meta charset="UTF-8">
 
-  if (conviteAberto) {
-    return;
-  }
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  conviteAberto = true;
+  <title>Laryssa & José</title>
 
-  /* 1. Texto desaparece */
-  texto.classList.add("sumindo");
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  /* 2. Selo desaparece */
-  selo.classList.add("abrindo");
+<body>
 
-  /* 3. Aba abre */
-  setTimeout(function () {
-    abaEnvelope.classList.add("aberta");
-  }, 450);
+  <main>
 
-  /* 4. Carta começa a sair */
-  setTimeout(function () {
-    carta.classList.add("saindo");
-  }, 950);
+    <div class="area-convite">
 
-  /* 5. Carta termina de sair */
-  setTimeout(function () {
-    carta.classList.remove("saindo");
-    carta.classList.add("aberta");
-  }, 1500);
+      <!-- Carta criada no Canva -->
+      <img
+  src="carta-nova.png"
+  alt="Carta do convite de Laryssa e José"
+  class="carta"
+  id="carta"
+>
 
-setTimeout(function () {
-  botaoSite.hidden = false;
+      <!-- Envelope dividido em camadas -->
+      <div
+        class="envelope-conjunto"
+        id="envelope-conjunto"
+      >
 
-  setTimeout(function () {
-    botaoSite.classList.add("visivel");
-  }, 50);
+        <img
+          src="envelope-base.png"
+          alt="Base do envelope"
+          class="envelope-base"
+        >
 
-}, 2300);
-botaoSite.addEventListener("click", function (event) {
+        <img
+          src="aba-envelope.png"
+          alt="Aba do envelope"
+          class="aba-envelope"
+          id="aba-envelope"
+        >
 
-  event.preventDefault();
+        <img
+          src="selo.png"
+          alt="Selo do envelope"
+          class="selo"
+          id="selo"
+        >
 
-  if (botaoSite.classList.contains("indo-para-site")) {
-    return;
-  }
+        <button
+          class="selo-botao"
+          id="selo-botao"
+          type="button"
+          aria-label="Abrir o convite tocando no selo"
+        ></button>
 
-  botaoSite.classList.add("indo-para-site");
+      </div>
 
-  const destino = botaoSite.href;
+    </div>
 
-  document.body.classList.add("saindo-site");
+    <!-- Orientação inicial -->
+    <p class="texto" id="texto">
+      Toque no selo para abrir
+    </p>
 
-  setTimeout(function () {
-    window.location.href = destino;
-  }, 450);
+    <!-- Botão que aparecerá depois da carta -->
+<a
+  href="https://noivos.casar.com/jose-e-laryssa-31-10-26"
+  class="botao-site"
+  id="botao-site"
+  hidden
+>
+  Entrar no nosso site
+</a>
 
-});
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
