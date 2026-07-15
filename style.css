@@ -260,9 +260,12 @@ main {
 /* TEXTO DE ORIENTAÇÃO */
 
 .texto {
-  display: inline-block;
+  display: block;
 
-  margin-top: 12px;
+  width: fit-content;
+
+  margin: 12px auto 0;
+
   padding: 10px 24px;
 
   font-family: "Cormorant Garamond", serif;
