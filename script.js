@@ -35,7 +35,7 @@ seloBotao.addEventListener("click", function () {
     carta.classList.remove("saindo");
     carta.classList.add("aberta");
   }, 1500);
-  
+
 setTimeout(function () {
   botaoSite.hidden = false;
 
@@ -44,4 +44,16 @@ setTimeout(function () {
   }, 50);
 
 }, 2300);
+});botaoSite.addEventListener("click", function (event) {
+
+  event.preventDefault();
+
+  const destino = botaoSite.href;
+
+  document.body.classList.add("saindo-site");
+
+  setTimeout(function () {
+    window.location.href = destino;
+  }, 450);
+
 });
