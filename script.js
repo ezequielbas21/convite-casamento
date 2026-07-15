@@ -44,9 +44,15 @@ setTimeout(function () {
   }, 50);
 
 }, 2300);
-});botaoSite.addEventListener("click", function (event) {
+botaoSite.addEventListener("click", function (event) {
 
   event.preventDefault();
+
+  if (botaoSite.classList.contains("indo-para-site")) {
+    return;
+  }
+
+  botaoSite.classList.add("indo-para-site");
 
   const destino = botaoSite.href;
 
